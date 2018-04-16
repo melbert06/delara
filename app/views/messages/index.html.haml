@@ -1,19 +1,9 @@
 -  @post.each do |post|
- %h2= link_to post.title, post
+ %h2= link_to 'hello', post
  %p 
   published at
   = time_ago_in_words(post.created_at)
   by
   =post.user.email
-
-  = link_to like_message_path(post.id), method: :put do
-   %p
-   Upvote
-   = post.get_upvotes.size
-
-  = link_to dislike_message_path(post.id), method: :put do
-   %p
-   Downvote
-   = post.get_downvotes.size
 
 = link_to 'home',posts_path

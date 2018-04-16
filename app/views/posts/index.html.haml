@@ -1,22 +1,29 @@
--  @post.each do |post|
- %h2= link_to post.title, post
- %p 
+%ul{:class => "nav navbar-nav navbar-right"}
+
+
+ %li{:class => "nav-item"}= link_to 'new Post',new_post_path ,:class => "nav-link"
+ %li= link_to 'My Post',messages_path
+ %li= link_to 'Logout', destroy_user_session_path, method: :delete
+%h1 Freedom Wall
+%div{:class => "container"}
+ -  @post.each do |post|
+  %h2= post.title 
+  %p= post.content
+  %p 
   published at
   = time_ago_in_words(post.created_at)
   by
   =post.user.email
 
-  = link_to like_post_path(post.id), method: :put do
-   %p
-   Upvote
-   = post.get_upvotes.size
-
-  = link_to dislike_post_path(post.id), method: :put do
-   %p
-   Downvote
-   = post.get_downvotes.size
 
 
-= link_to 'new Post',new_post_path
-= link_to 'Message',messages_path
-= link_to 'Logout', destroy_user_session_path, method: :delete
+  / = link_to like_post_path(post.id), method: :put do
+  /  %p
+  /  Upvote
+  /  = post.get_upvotes.size
+
+  / = link_to dislike_post_path(post.id), method: :put do
+  /  %p
+  /  Downvote
+  /  = post.get_downvotes.size
+

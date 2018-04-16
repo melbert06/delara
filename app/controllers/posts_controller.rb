@@ -1,26 +1,27 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 	
-	def upvote 
-  		@post = Post.find(params[:id])
-  		@post.upvote_by current_user
-  		redirect_back fallback_location: root_path
-	end  
+	# def upvote 
+ #  		@post = Post.find(params[:id])
+ #  		@post.upvote_by current_user
+ #  		redirect_back fallback_location: root_path
+	# end  
 
-	def downvote
-  		@post = Post.find(params[:id])
-  		@post.downvote_by current_user
-  		redirect_back fallback_location: root_path
-	end
+	# def downvote
+ #  		@post = Post.find(params[:id])
+ #  		@post.downvote_by current_user
+ #  		redirect_back fallback_location: root_path
+	# end
+
 	def index
 
 		# @post = Post.all
-		 @post = Post.select(Arel.star).where(Post.arel_table[:user_id].eq(current_user.id))
-		if Post.select(:post_id).where(Post.arel_table[:user_id].eq(2))
+		 @post = Post.all
+		# if Post.select(:post_id).where(Post.arel_table[:user_id].eq(2))
 
-		else 
-			render 'nothing'
-		end	 
+		# else 
+		# 	render 'nothing'
+		# end	 
 	end
 	def show
 		@post = Post.find(params[:id])

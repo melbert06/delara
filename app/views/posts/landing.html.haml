@@ -1,6 +1,7 @@
-%h1 landing page
-
-= link_to 'Sign in' ,new_user_session_path
+%div{:class=>"jumbotron"}
+ %h1 Freedom wall
+ %p Sign in to express your feelings 
+ = link_to 'Sign in' ,new_user_session_path
 
 
 / =@post.first(:created_at)

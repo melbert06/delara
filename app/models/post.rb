@@ -11,7 +11,3 @@ class Post < ApplicationRecord
 end
 
 
-@post = Post.new( :title => 'thea')
-@post.save 
-@post.liked_by @user
-@post.votes_for.size  #=> 1 
